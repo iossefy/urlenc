@@ -9,9 +9,8 @@
 void urldec(char *s)
 {
 
-    int i, n;
+    int i;
     size_t size;
-    char *decrypted;
 
     char mod = '%';
 
