@@ -41,3 +41,9 @@ char *stdin_recv(size_t buffsz)
 		return NULL;
 	}
 }
+
+long hextodecimal(char *sbase16)
+{
+    long ret = strtol(sbase16, NULL, 16);
+    return ret;
+}
