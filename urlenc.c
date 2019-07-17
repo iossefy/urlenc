@@ -8,7 +8,7 @@ void urlenc(char *s)
 
     size = count(s);
     for(i=0; i<size; ++i) {
-        printf("%%%x", (char)s[i]);
+        printf("%%%02x", (char)s[i]);
     }
 
 }
