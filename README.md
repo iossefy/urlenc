@@ -27,11 +27,11 @@ echo "this is just a %74%65%73%74." | urldec
 ```
 
 ## FAQ
-**why another one**
+**why another one**:
 i wrote cause i do not want to use burp suite for this kind of encoding, and
 command line binaries are faster and more portable.
 
-**why in C, in python you can do it in 2 lines**
+**why in C, in python you can do it in 2 lines**:
 C is faster, python is slower. another reason is i want to sharp my C skills
 
 # LICENSE
