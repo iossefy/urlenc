@@ -1,5 +1,5 @@
 CC=gcc
-FLAGS=-Wall -s
+FLAGS=-Wall -s -O3
 
 RM=rm -rf
 CP=cp -r
