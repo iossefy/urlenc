@@ -5,7 +5,7 @@ RM=rm -rf
 CP=cp -r
 
 BUILD=./build/
-INSTALL_PATH=/usr/local/bin
+INSTALL_PATH=~/.local/bin
 
 MKDIR=mkdir -p -v
 
