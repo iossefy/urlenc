@@ -22,7 +22,7 @@ char *stdin_recv(size_t buffsz)
     https://stackoverflow.com/questions/2172943/size-of-character-a-in-c-c */
     char *buffer = (char *)malloc(sizeof(char) * buffsz);
 
-	int i = 0;
+	size_t i = 0;
 	register int cr;
 
 	do {

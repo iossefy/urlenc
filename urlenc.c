@@ -4,7 +4,7 @@
 void urlenc(char *s)
 {
     size_t size;
-    int i;
+    size_t i;
 
     size = count(s);
     for(i=0; i<size; ++i) {
@@ -13,7 +13,7 @@ void urlenc(char *s)
 
 }
 
-int main(int argc, char **argv)
+int main()
 {
     char *buffer = stdin_recv(BUFFER_SIZE);
 

@@ -9,7 +9,7 @@
 void urldec(char *s)
 {
 
-    int i;
+    size_t i;
     size_t size;
 
     char mod = '%';
@@ -45,7 +45,7 @@ void urldec(char *s)
     }
 }
 
-int main(int argc, char **argv)
+int main()
 {
     char *buffer = stdin_recv(BUFFER_SIZE);
 
