@@ -16,7 +16,7 @@ TARGET_E=urlenc
 TARGET_D=urldec
 
 compile: dir urlenc urldec
-	@echo "to install 'make install'"
+	@echo "to install run: make install"
 
 install:
 	$(CP) $(BUILD)/$(TARGET_E) $(INSTALL_PATH)/$(TARGET_E)

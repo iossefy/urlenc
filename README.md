@@ -11,7 +11,7 @@ git clone https://github.com/M1cR0xft/urlenc.git
 
 cd urlenc
 make
-sudo make install
+make install
 
 # try it
 
