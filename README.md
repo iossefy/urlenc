@@ -35,4 +35,4 @@ also command line binaries are faster and more portable.
 C is faster, python is slower. another reason is i want to sharp my C skills.
 
 # LICENSE
-Public Domain
+[BSD-3-Clause license](COPYING)
