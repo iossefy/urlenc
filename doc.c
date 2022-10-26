@@ -26,11 +26,11 @@ void help_enc(const char *name)
 void help_dec(const char *name)
 {
 
-  printf("Usage: echo \"<data>\" | %s\n"
-         "Usage: %s [<options>...]\n\n"
-	 "URL decode standard input to standard output.\n\n"
-	 "<Options>\n"
-         "-h : display this help and exit\n\n", name, name);
+    printf("Usage: echo \"<data>\" | %s\n"
+	   "Usage: %s [<options>...]\n\n"
+	   "URL decode standard input to standard output.\n\n"
+	   "<Options>\n"
+	   "-h : display this help and exit\n\n", name, name);
     copyrights();
     exit(EXIT_SUCCESS);
 }
