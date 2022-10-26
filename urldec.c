@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "util.h"
+#include "doc.h"
 
-
+#define NAME "urldec"
 
 void urldec(char *s)
 {
@@ -16,7 +16,7 @@ void urldec(char *s)
 
     char tmp[4];
 
-    size = count(s);
+    size = strnlen(s, BUFFER_SIZE-1);
 
     // hex delimter
     tmp[0]='0';
@@ -26,32 +26,42 @@ void urldec(char *s)
 
     long tmp_ret;
 
-
     for(i = 0; i < size; ++i){
-        if (s[i] == mod){
-            /* printf("%c%c%c ", s[i], s[i+1], s[i+2]); */
-            tmp[2]=s[i+1];
-            tmp[3]=s[i+2];
+	if (s[i] == mod){
+	    /* printf("%c%c%c ", s[i], s[i+1], s[i+2]); */
+	    tmp[2]=s[i+1];
+	    tmp[3]=s[i+2];
 
-            tmp_ret = hextodecimal(tmp);
-            printf("%c", (int)tmp_ret);
+	    tmp_ret = hextodecimal(tmp);
+	    printf("%c", (int)tmp_ret);
 
-            memmove(s+i, s+i+2, strlen(s) - i+1);
-            /* memmove(s+i, s+i+3, strlen(s) - i+2); */
+	    memmove(s+i, s+i+2, strlen(s) - i+1);
+	    /* memmove(s+i, s+i+3, strlen(s) - i+2); */
 
-        } else {
-            printf("%c", s[i]);
-        }
+	} else {
+	    printf("%c", s[i]);
+	}
     }
 }
 
-int main()
+int main(int argc, char **argv)
 {
-    char *buffer = stdin_recv(BUFFER_SIZE);
+    /* parse arguments */
+    if (argc > 1) {
+	size_t optind;
+	for (optind = 1; optind < argc && argv[optind][0] == '-'; optind++) {
+	    switch (argv[optind][1]) {
+	    case 'h':
+		help_dec(NAME);
+		break;
+	    }
+	}
+    }
 
+    char *buffer = stdin_recv(BUFFER_SIZE);
     if(buffer == NULL){
-        free(buffer);
-        return 1;
+	free(buffer);
+	return 1;
     }
 
     urldec(buffer);

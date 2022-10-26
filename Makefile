@@ -9,14 +9,16 @@ INSTALL_PATH=~/.local/bin
 
 MKDIR=mkdir -p -v
 
-E_SRC=urlenc.c util.c
-D_SRC=urldec.c util.c
+COMMON_SRC=doc.c doc.h util.c util.h
+E_SRC=urlenc.c $(COMMON_SRC)
+D_SRC=urldec.c $(COMMON_SRC)
 
 TARGET_E=urlenc
 TARGET_D=urldec
 
+
 compile: dir urlenc urldec
-	@echo "to install run: make install"
+	@echo "Done"
 
 install:
 	$(CP) $(BUILD)/$(TARGET_E) $(INSTALL_PATH)/$(TARGET_E)

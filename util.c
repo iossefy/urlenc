@@ -1,20 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * count how many characters are there
- * i know strlen() and strnlen() exists but
- * i will do it manually anyway
- * */
-size_t count(char *s)
-{
-    size_t count = 0;
-
-    int i;
-    for(i=0; s[i]; ++i)
-        ++count;
-    return count;
-}
 
 char *stdin_recv(size_t buffsz)
 {
@@ -44,6 +30,5 @@ char *stdin_recv(size_t buffsz)
 
 long hextodecimal(char *sbase16)
 {
-    long ret = strtol(sbase16, NULL, 16);
-    return ret;
+    return strtol(sbase16, NULL, 16);
 }

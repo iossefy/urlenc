@@ -5,7 +5,6 @@
 
 #define BUFFER_SIZE 10000
 
-size_t count(char *s);
 char *stdin_recv(size_t buffsz);
 long hextodecimal(char *sbase16);
 
