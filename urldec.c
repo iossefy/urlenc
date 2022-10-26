@@ -35,7 +35,7 @@ void urldec(char *s)
 	    tmp_ret = hextodecimal(tmp);
 	    printf("%c", (int)tmp_ret);
 
-	    memmove(s+i, s+i+2, strlen(s) - i+1);
+	    memmove(s+i, s+i+2, strnlen(s, BUFFER_SIZE-1) - i+1);
 	    /* memmove(s+i, s+i+3, strlen(s) - i+2); */
 
 	} else {
