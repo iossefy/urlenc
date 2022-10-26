@@ -57,3 +57,6 @@ build/
 
 # automatic build system
 buildonchange.sh
+
+# ctags
+TAGS
