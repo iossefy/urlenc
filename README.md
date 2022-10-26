@@ -35,6 +35,11 @@ echo "use plus please" | urlenc -s
 echo "use plus please and ignore alphanumeric characters" | urlenc -s -a
 # use+plus+please+and+ignore+alphanumeric+characters
 
+echo "' or 1=1 limit 1 -- -+" | urlenc -s -a
+# %27+or+1%3d1+limit+1+%2d%2d+%2d%2b
+
+echo echo "This is just a test." | urlenc -a
+# This%20is%20just%20a%20test%2e
 ```
 
 ### urlenc help
