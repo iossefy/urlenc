@@ -16,9 +16,24 @@ make install
 
 ## example usage
 
-```bash
-# try it
+don't do this
 
+```bash
+./urlenc -i hello.txt -s -a
+```
+
+instead do this
+
+```bash
+./urlenc -s -a -i hello.txt
+```
+
+ensure the `-i` option is the last argument in both `urlenc` and
+`urldec`
+
+### input from stdin
+
+```bash
 echo "testing the new urldec utility\nit seems to be fun" | urlenc
 # %74%65%73%74%69%6e%67%20%74%68%65%20%6e%65%77%20%75%72%6c%64%65%63%20%75%74%69%6c%69%74%79%0a%69%74%20%73%65%65%6d%73%20%74%6f%20%62%65%20%66%75%6e
 
@@ -42,18 +57,35 @@ echo echo "This is just a test." | urlenc -a
 # This%20is%20just%20a%20test%2e
 ```
 
+### input from FILE
+
+```bash
+# write a message to a file
+echo "Welcome My Brothers!!" > hello.txt
+
+# encode the message inside hello.txt
+./urlenc -i hello.txt
+# %57%65%6c%63%6f%6d%65%20%4d%79%20%42%72%6f%74%68%65%72%73%21%21%0a
+
+# let's redirect the input of this message to another file
+./urlenc -i hello.txt > encoded.txt
+
+# decode the message inside encoded.txt
+./urldec -i encoded.txt
+# Welcome My Brothers!!
+```
+
 ### urlenc help
 ```text
-$ urlenc --help
-
 Usage: echo "<data>" | urlenc [<options>...]
-Usage: urlenc [<options>...]
+Usage: urlenc -i [<FILE>]
 
-URL encode standard input to standard output.
+URL encode FILE, or standard input to standard output.
 
 <Options>
 -a : ignore alphanumeric characters
 -s : use + instead of %20 when encoding spaces
+-i : input file to encode (must be the last argument)
 -h : display this help and exit
 
 Copyright (c) 2019-2022 Youssef Hesham
@@ -61,13 +93,13 @@ Copyright (c) 2019-2022 Youssef Hesham
 
 ### urldec help
 ```text
-urldec -h
 Usage: echo "<data>" | urldec
-Usage: urldec [<options>...]
+Usage: urldec -i [<FILE>]
 
-URL decode standard input to standard output.
+URL decode FILE, or standard input to standard output.
 
 <Options>
+-i : input file to decode (must be the last argument)
 -h : display this help and exit
 
 Copyright (c) 2019-2022 Youssef Hesham

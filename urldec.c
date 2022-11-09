@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include "util.h"
 #include "doc.h"
@@ -18,7 +19,7 @@ void urldec(char *s)
 
     size = strnlen(s, BUFFER_SIZE-1);
 
-    // hex delimter
+    /* hex delimter */
     tmp[0]='0';
     tmp[1]='x';
 
@@ -46,11 +47,25 @@ void urldec(char *s)
 
 int main(int argc, char **argv)
 {
+
+    bool in_file = false;
+    char *filename = NULL;
+
     /* parse arguments */
     if (argc > 1) {
 	size_t optind;
 	for (optind = 1; optind < argc && argv[optind][0] == '-'; optind++) {
 	    switch (argv[optind][1]) {
+	    case 'i':
+		in_file = true;
+		if (optind + 1 > argc-1) {
+		    fprintf(stderr, "no file input\n");
+		    break;
+		}
+
+		if (check_fname_len(argv[optind+1]) == 0)
+		    filename = argv[optind+1];
+		break;
 	    case 'h':
 		help_dec(NAME);
 		break;
@@ -58,7 +73,20 @@ int main(int argc, char **argv)
 	}
     }
 
-    char *buffer = stdin_recv(BUFFER_SIZE);
+    char *buffer;
+    int err = 0;
+
+    if (in_file) {
+	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	err = prepare_read(&buffer, BUFFER_SIZE, filename);
+	handle_readall_errors(err);
+	if (err != 0)
+	    return err;
+    }
+    else
+	buffer = stdin_recv(BUFFER_SIZE);
+
+
     if(buffer == NULL){
 	free(buffer);
 	return 1;
@@ -66,7 +94,9 @@ int main(int argc, char **argv)
 
     urldec(buffer);
     free(buffer);
-    printf("\n");
+
+    if (!in_file)
+	printf("\n");
 
     return 0;
 }
