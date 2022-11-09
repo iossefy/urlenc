@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -34,8 +35,8 @@ int main(int argc, char **argv, char **envp)
 {
 
 
-    bool plus		= false; /* use + instead of %20 */
-    bool ignore_ascii	= false; /* example: hello%20world */
+    bool plus           = false; /* use + instead of %20 */
+    bool ignore_ascii   = false; /* example: hello%20world */
     bool in_file        = false;
 
     char *filename      = NULL;  /* read input file */
