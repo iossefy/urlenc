@@ -10,8 +10,13 @@ it requires no dependencies just run the following
 git clone https://github.com/M1cR0xf7/urlenc.git
 
 cd urlenc
+# compile
 make
+# install
 make install
+
+# compile and install
+make all
 ```
 
 ## example usage
