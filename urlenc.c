@@ -74,11 +74,8 @@ int main(int argc, char **argv, char **envp)
 	handle_readall_errors(err);
 	if (err != 0)
 	    return err;
-    }
-    else
+    } else
 	buffer = stdin_recv(BUFFER_SIZE);
-
-
 
     if(buffer == NULL){
 	free(buffer);

@@ -82,8 +82,7 @@ int main(int argc, char **argv)
 	handle_readall_errors(err);
 	if (err != 0)
 	    return err;
-    }
-    else
+    } else
 	buffer = stdin_recv(BUFFER_SIZE);
 
 
