@@ -31,7 +31,7 @@ void urlenc(char *s, bool plus, bool ignore_ascii)
 
 
 
-int main(int argc, char **argv, char **envp)
+int main(int argc, char **argv)
 {
 
 
