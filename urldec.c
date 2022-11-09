@@ -97,5 +97,5 @@ int main(int argc, char **argv)
     if (!in_file)
 	printf("\n");
 
-    return 0;
+    return err;
 }
