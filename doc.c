@@ -12,7 +12,7 @@ void copyrights()
 void help_enc(const char *name)
 {
     printf("Usage: echo \"<data>\" | %s [<options>...]\n"
-	   "Usage: %s -i [<FILE>]\n\n"
+	   "Usage: %s [<options>...]\n\n"
 	   "URL encode FILE, or standard input to standard output.\n\n"
 	   "<Options>\n"
 	   "-a : ignore alphanumeric characters\n"
@@ -28,7 +28,7 @@ void help_dec(const char *name)
 {
 
     printf("Usage: echo \"<data>\" | %s\n"
-	   "Usage: %s -i [<FILE>]\n\n"
+	   "Usage: %s [<options>...]\n\n"
 	   "URL decode FILE, or standard input to standard output.\n\n"
 	   "<Options>\n"
 	   "-i : input file to decode (must be the last argument)\n"

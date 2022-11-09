@@ -78,7 +78,7 @@ echo "Welcome My Brothers!!" > hello.txt
 ### urlenc help
 ```text
 Usage: echo "<data>" | urlenc [<options>...]
-Usage: urlenc -i [<FILE>]
+Usage: urlenc [<options>...]
 
 URL encode FILE, or standard input to standard output.
 
@@ -94,7 +94,7 @@ Copyright (c) 2019-2022 Youssef Hesham
 ### urldec help
 ```text
 Usage: echo "<data>" | urldec
-Usage: urldec -i [<FILE>]
+Usage: urldec [<options>...]
 
 URL decode FILE, or standard input to standard output.
 
