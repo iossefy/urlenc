@@ -9,33 +9,26 @@ INSTALL_PATH=~/.local/bin
 
 MKDIR=mkdir -p -v
 
-COMMON_SRC=doc.c doc.h util.c util.h
-E_SRC=urlenc.c $(COMMON_SRC)
-D_SRC=urldec.c $(COMMON_SRC)
+SRC=doc.c  doc.h  urldec.c  urldec.h  urlenc.c  util.c  util.h
 
-TARGET_E=urlenc
-TARGET_D=urldec
+TARGET=urlenc
 
-
-compile: dir urlenc urldec
+compile: dir urlenc
 	@echo "Done compiling"
 
 all: compile install
 
-
 install:
-	$(CP) $(BUILD)/$(TARGET_E) $(INSTALL_PATH)/$(TARGET_E)
-	$(CP) $(BUILD)/$(TARGET_D) $(INSTALL_PATH)/$(TARGET_D)
+	$(CP) $(BUILD)/$(TARGET) $(INSTALL_PATH)/$(TARGET)
 	@echo "Done installing"
 
 dir:
 	$(MKDIR) $(BUILD)
 
+.PHONY: urlenc
 urlenc:
-	$(CC) $(FLAGS) $(E_SRC) -o $(BUILD)/$(TARGET_E)
+	$(CC) $(FLAGS) $(SRC) -o $(BUILD)/$(TARGET)
 
-urldec:
-	$(CC) $(FLAGS) $(D_SRC) -o $(BUILD)/$(TARGET_D)
-
+.PHONY: clean
 clean:
 	$(RM) $(BUILD)

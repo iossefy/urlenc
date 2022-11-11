@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include "util.h"
+#include "urldec.h"
 #include "doc.h"
 
 #define NAME "urlenc"
@@ -34,7 +35,7 @@ void urlenc(char *s, bool plus, bool ignore_ascii)
 int main(int argc, char **argv)
 {
 
-
+    bool decode         = false; /* decode mode */
     bool plus           = false; /* use + instead of %20 */
     bool ignore_ascii   = false; /* example: hello%20world */
     bool in_file        = false;
@@ -48,6 +49,7 @@ int main(int argc, char **argv)
 	    switch (argv[optind][1]) {
 	    case 's': plus = true; break;
 	    case 'a': ignore_ascii = true; break;
+	    case 'd': decode = true; break;
 	    case 'i':
 		in_file = true;
 		if (optind + 1 > argc-1) {
@@ -83,7 +85,12 @@ int main(int argc, char **argv)
 	return 1;
     }
 
-    urlenc(buffer, plus, ignore_ascii);
+
+    if (!decode)
+	urlenc(buffer, plus, ignore_ascii);
+    else
+	urldec(buffer);
+
     free(buffer);
 
     if (!in_file)
