@@ -10,7 +10,7 @@ void copyrights()
 
 void version(const char *name)
 {
-    printf("%s version %s ( https://github.com/m1cR0xf7/urlenc )\n", name, VERSION);
+    printf("%s version %s ( %s )\n", name, VERSION, HOMEPAGE);
     exit(EXIT_SUCCESS);
 }
 
