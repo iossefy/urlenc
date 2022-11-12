@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 		break;
 	    default:
 		fprintf(stderr, "%s: Unrecognised option '%s'\n"
-			"try' %s -h' for more information\n",
+			"try '%s -h' for more information\n",
 			NAME, argv[optind], NAME);
 		return 1;
 		break;
