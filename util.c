@@ -133,7 +133,7 @@ void handle_readall_errors(int err)
 	fprintf(stderr, "error: out of memory\n");
 	break;
     case READALL_TOOMUCH:
-	fprintf(stderr, "error: overflow check");
+	fprintf(stderr, "error: overflow check\n");
 	break;
     }
 }
