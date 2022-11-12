@@ -8,6 +8,11 @@ void copyrights()
     printf("Copyright (c) 2019-2022 Youssef Hesham\n");
 }
 
+void version(const char *name)
+{
+    printf("%s version %s ( https://github.com/m1cR0xf7/urlenc )\n", name, VERSION);
+    exit(EXIT_SUCCESS);
+}
 
 void help_enc(const char *name)
 {
@@ -19,6 +24,7 @@ void help_enc(const char *name)
 	   "-a : ignore alphanumeric characters\n"
 	   "-s : use + instead of %%20 when encoding spaces\n"
 	   "-i : input file to encode (must be the last argument)\n"
+	   "-v : print version number\n"
 	   "-h : display this help and exit\n\n", name, name);
 
     copyrights();

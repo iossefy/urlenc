@@ -1,8 +1,11 @@
 #ifndef _DOC_H_
 #define _DOC_H_
 
-void copyrights();
-void help_enc(const char *name);
+#define VERSION "3.0"
+#define HOMEPAGE "https://github.com/m1cR0xf7/urlenc"
 
+void copyrights();
+void version(const char *name);
+void help_enc(const char *name);
 
 #endif

@@ -59,8 +59,15 @@ int main(int argc, char **argv)
 		if (check_fname_len(argv[optind+1]) == 0)
 		    filename = argv[optind+1];
 		break;
+	    case 'v':
+		version(NAME);
+		break;
 	    case 'h':
 		help_enc(NAME);
+		break;
+	    default:
+		fprintf(stderr, "error: Unrecognised argument [%s]\n", argv[optind]);
+		return 1;
 		break;
 	    }
 	}

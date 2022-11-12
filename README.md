@@ -92,6 +92,7 @@ URL encode or decode FILE, or standard input, to standard output.
 -a : ignore alphanumeric characters
 -s : use + instead of %20 when encoding spaces
 -i : input file to encode (must be the last argument)
+-v : print version number
 -h : display this help and exit
 
 Copyright (c) 2019-2022 Youssef Hesham
