@@ -66,7 +66,9 @@ int main(int argc, char **argv)
 		help_enc(NAME);
 		break;
 	    default:
-		fprintf(stderr, "error: Unrecognised argument [%s]\n", argv[optind]);
+		fprintf(stderr, "%s: Unrecognised option '%s'\n"
+			"try' %s -h' for more information\n",
+			NAME, argv[optind], NAME);
 		return 1;
 		break;
 	    }
