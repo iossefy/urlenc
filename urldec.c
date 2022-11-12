@@ -3,8 +3,6 @@
 #include <string.h>
 #include "util.h"
 
-#define NAME "urldec"
-
 void urldec(char *s)
 {
 

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-
 #include "util.h"
 
 
@@ -50,7 +49,7 @@ size_t check_fname_len(const char *fname)
     return 0;
 }
 
-/* This function returns one of the READALL_ constants above.
+/* This function returns one of the READALL_.
    If the return value is zero == READALL_OK, then:
    (*dataptr) points to a dynamically allocated buffer, with
    (*sizeptr) chars read from the file.
@@ -128,7 +127,7 @@ void handle_readall_errors(int err)
 	fprintf(stderr, "error: invalid parameters\n");
 	break;
     case READALL_ERROR:
-	fprintf(stderr, "error: reading file\n");
+	fprintf(stderr, "error: cannot read file\n");
 	break;
     case READALL_NOMEM:
 	fprintf(stderr, "error: out of memory\n");
