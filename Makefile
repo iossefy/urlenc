@@ -9,7 +9,7 @@ INSTALL_PATH=~/.local/bin
 
 MKDIR=mkdir -p -v
 
-SRC=doc.c  doc.h  urldec.c  urldec.h  urlenc.c  util.c  util.h
+SRC=*.c
 
 TARGET=urlenc
 
