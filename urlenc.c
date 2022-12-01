@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	err = prepare_read(&buffer, BUFFER_SIZE, filename);
 	handle_readall_errors(err);
 	if (err != 0)
-	    return err;
+	    return 1;
     } else
 	buffer = stdin_recv(BUFFER_SIZE);
 
@@ -104,5 +104,5 @@ int main(int argc, char **argv)
     if (!in_file)
 	printf("\n");
 
-    return err;
+    return 0;
 }
