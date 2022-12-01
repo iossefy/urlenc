@@ -142,5 +142,13 @@ void handle_readall_errors(int err)
 int prepare_read(char **buff, size_t sz, char *filename)
 {
     FILE *f = fopen(filename, "rb");
-    return readall(f, buff, &sz);
+
+    int read = readall(f, buff, &sz);
+
+    if (read != 0)
+	return read;
+
+    fclose(f);
+
+    return read;
 }
