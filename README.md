@@ -95,7 +95,7 @@ URL encode or decode FILE, or standard input, to standard output.
 -v : print version number
 -h : display this help and exit
 
-Copyright (c) 2019-2022 Youssef Hesham
+Copyright (c) 2019-2023 Youssef Hesham
 
 ```
 

@@ -5,7 +5,7 @@
 
 void copyrights()
 {
-    printf("Copyright (c) 2019-2022 Youssef Hesham\n");
+    printf("Copyright (c) 2019-2023 Youssef Hesham\n");
 }
 
 void version(const char *name)
