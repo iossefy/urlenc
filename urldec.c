@@ -11,7 +11,7 @@ void urldec(char *s)
 
     char mod = '%';
 
-    char tmp[4];
+    char tmp[8];
 
     size = strnlen(s, BUFFER_SIZE-1);
 
