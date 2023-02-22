@@ -13,11 +13,6 @@ void urldec(char *s)
     char mod = '%';
 
     size = strnlen(s, BUFFER_SIZE-1);
-    /* sanity check */
-    if (size >= BUFFER_SIZE) {
-	return;			/* bof */
-
-    }
 
     int nm = 0;
     for (i = 0; i < size; ++i) {
@@ -25,8 +20,8 @@ void urldec(char *s)
 	    nm++;
     }
 
-    /* string size - number of (modulus sign + 2 hex characters) + null byte */
-    char buf[sizeof(char) * size - 3 * nm + 1];
+    /* string size + ((% char + 2 hex chars) * num of %) + null byte */
+    char buf[sizeof(char) * size + (3 * nm) + 1];
 
     for(i = 0; i < size; ++i){
 	if (s[i] != mod) {
@@ -43,10 +38,6 @@ void urldec(char *s)
 
     }
 
-    buf[i + 1] = 0;
-
-    for (i = 0; i < strlen(buf); ++i) {
-	printf("%c", buf[i]);
-    }
-
+    buf[i] = 0;
+    printf("%s", buf);
 }
